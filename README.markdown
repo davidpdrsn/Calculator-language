@@ -27,3 +27,10 @@ a * ( b + a ) / 4.
 
 1. Install Haskell
 2. `ghc -o bin/calc Calc.hs`
+
+## Things I would like to add
+
+- Various optimizations.
+- Pretty printer.
+- Functions.
+- Code generator, possibly to JavaScript (because why not?)
