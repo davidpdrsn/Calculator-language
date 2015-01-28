@@ -7,6 +7,8 @@ import Data.List
 import qualified Parse
 import Ast
 
+-- TODO: How do we optimize the program as a whole?
+--       and when are we done applying optimizations?
 optimize :: Program -> Program
 optimize = map optimizeExpr
 
