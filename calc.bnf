@@ -1,0 +1,11 @@
+Program    -> Expr '\n' Program
+Program    ->
+Expr       -> [0-9]+
+Expr       -> Constant
+Expr       -> Expr '+' Expr
+Expr       -> Expr '-' Expr
+Expr       -> Expr '*' Expr
+Expr       -> Expr '/' Expr
+Expr       -> Assignment
+Assignment -> Expr '=' Expr
+Expr       -> (Expr)
