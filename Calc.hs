@@ -5,6 +5,7 @@ import Prelude hiding (lookup)
 import Text.ParserCombinators.Parsec (parseFromFile)
 import Parse
 import Ast
+import Optimize
 
 main :: IO ()
 main = do
@@ -20,7 +21,7 @@ main = do
     _ -> putStrLn "Usage: calc <filename>"
 
 evalProgram :: Program -> Either String Int
-evalProgram p = case evalStatements [] p of
+evalProgram p = case evalStatements [] (optimize p) of
   Right (_, result) -> Right result
   Left error -> Left error
 
