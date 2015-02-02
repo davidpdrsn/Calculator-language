@@ -3,9 +3,9 @@ module Ast where
 type Program = [Expr]
 type Name = String
 type SymTab = [Binding]
-type Binding = (Name, Int)
+type Binding = (Name, Value)
 
-data Expr = Constant Int
+data Expr = Constant Value
           | Plus Expr Expr
           | Minus Expr Expr
           | Times Expr Expr
@@ -13,3 +13,7 @@ data Expr = Constant Int
           | Assignment Expr Expr
           | Identifier Name
           deriving (Show)
+
+-- TODO: Would be neat to make this a functor, but the "kind" is wrong
+data Value = ValueInteger Int
+           deriving (Show)

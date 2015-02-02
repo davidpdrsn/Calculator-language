@@ -26,7 +26,7 @@ expr = binOpChain
 
     numbers = do
       ns <- lexeme $ many1 digit
-      return $ Constant (read ns)
+      return $ Constant $ ValueInteger (read ns)
 
     identifier = do
       name <- lexeme $ many letter

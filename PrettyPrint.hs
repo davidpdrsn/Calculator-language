@@ -1,9 +1,8 @@
 module PrettyPrint where
 
-import System.Environment
-import Prelude hiding (join)
 import Text.ParserCombinators.Parsec (parse)
-import Data.List
+import Prelude hiding (error, lines)
+import Data.List hiding (lines)
 import qualified Parse
 import Ast
 
@@ -19,6 +18,6 @@ prettyPrintExpr e = case e of
   Minus e1 e2 -> (prettyPrintExpr e1) ++ " - " ++ (prettyPrintExpr e2)
   Times e1 e2 -> (prettyPrintExpr e1) ++ " * " ++ (prettyPrintExpr e2)
   Divide e1 e2 -> (prettyPrintExpr e1) ++ " / " ++ (prettyPrintExpr e2)
-  Assignment id e -> (prettyPrintExpr id) ++ " = " ++ (prettyPrintExpr e)
-  Identifier id -> id
+  Assignment identifier val -> (prettyPrintExpr identifier) ++ " = " ++ (prettyPrintExpr val)
+  Identifier identifier -> identifier
 
