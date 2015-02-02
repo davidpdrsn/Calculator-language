@@ -2,8 +2,7 @@ module Ast where
 
 type Program = [Expr]
 type Name = String
-type SymTab = [Binding]
-type Binding = (Name, Value)
+type SymTab = [(String, Value)]
 
 data Expr = Constant Value
           | Plus Expr Expr
